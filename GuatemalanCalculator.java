@@ -5,18 +5,46 @@ import java.io.*;
 public class GuatemalanCalculator {
     private QuetzalStack<Integer> resultStack = new QuetzalStack<Integer>();
 
+
+// done importTExt()
     public ArrayList<String> importText() {
 
         String direccion = "C:/Users/dsgsp/OneDrive/Documentos/progra/Estructuras/semana3/3/-CC2003_S30_HT2/texto.txt";
         String datosDocumento = leerTxt(direccion);
+        System.out.println("lo que hay en el documento es:");
+        System.out.println(datosDocumento);
         String datosEnArray[] = datosDocumento.split(" ");
         ArrayList<String> datosEnArrayList = new ArrayList();
-        for (int i = 0; i >= datosEnArray.length; i++) {
+        String salto = "S";
+        int largoValor;
+
+        int contadorCuantosSaltos = 0;
+
+
+
+        // first we will insert "S" between 2 following characters joined with no space
+        // because that is a linejump
+        for (int i = 0; i < datosEnArray.length; i++) {
+            String x = datosEnArray[i];
+            largoValor = x.length();
+            System.out.println(largoValor);
+            if (largoValor > 1) {
+                if (x.contains(salto) == false) {
+                    datosDocumento = insertString(datosDocumento, salto, (i+contadorCuantosSaltos*salto.length() )*2);
+                    System.out.println(datosDocumento);
+                    contadorCuantosSaltos++;
+                }
+
+            }
+            largoValor = 0;
+        }    
+
+        datosEnArray = datosDocumento.split(salto);
+
+        for (int i = 0; i < datosEnArray.length; i++) {
             datosEnArrayList.add(datosEnArray[i]);
-            System.out.println(datosEnArrayList.get(1));
         }
-        //System.out.println(datosEnArray.length);
-        
+
         return datosEnArrayList;
     }
 
@@ -30,6 +58,7 @@ public class GuatemalanCalculator {
     int calculate(String line) {
 
         int result = -1;
+        
         for(int i = 0; i < line.length(); i++) {
             char character = line.charAt(i);
             switch (character) {
@@ -74,5 +103,19 @@ public class GuatemalanCalculator {
         return texto;
 
     }
+
+    public static String insertString( String originalString, String stringToBeInserted, int index)  { 
+        // Create a new StringBuffer 
+        StringBuffer newString 
+            = new StringBuffer(originalString); 
+  
+        // Insert the strings to be inserted 
+        // using insert() method 
+        newString.insert(index + 1, stringToBeInserted); 
+  
+        // return the modified String 
+        return newString.toString(); 
+    } 
+  
 
 }
