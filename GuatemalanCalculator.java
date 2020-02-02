@@ -91,6 +91,9 @@ public class GuatemalanCalculator {
                     secondNumber = resultStack.pop();
                     resultStack.push(firstNumber / secondNumber);
                     break;
+                    
+                case ' ':
+                    break;
 
                 default:
                     return -1000101;    // Error code (binary E) used to signify an invalid line calculation. 
