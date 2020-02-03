@@ -11,8 +11,7 @@ public class GuatemalanCalculator {
 
         String direccion = "C:/Users/dsgsp/OneDrive/Documentos/progra/Estructuras/semana3/3/-CC2003_S30_HT2/texto.txt";
         String datosDocumento = leerTxt(direccion);
-        System.out.println("lo que hay en el documento es:");
-        System.out.println(datosDocumento);
+
         String datosEnArray[] = datosDocumento.split(" ");
         ArrayList<String> datosEnArrayList = new ArrayList();
         String salto = "S";
@@ -27,11 +26,11 @@ public class GuatemalanCalculator {
         for (int i = 0; i < datosEnArray.length; i++) {
             String x = datosEnArray[i];
             largoValor = x.length();
-            System.out.println(largoValor);
+
             if (largoValor > 1) {
                 if (x.contains(salto) == false) {
                     datosDocumento = insertString(datosDocumento, salto, (i+contadorCuantosSaltos*salto.length() )*2);
-                    System.out.println(datosDocumento);
+            
                     contadorCuantosSaltos++;
                 }
 
@@ -55,7 +54,7 @@ public class GuatemalanCalculator {
         return true;
     }
 
-    int calculate(String line) {
+    public int calculate(String line) {
         int firstNumber = 0;
         int secondNumber = 0;
         int result = -1;
