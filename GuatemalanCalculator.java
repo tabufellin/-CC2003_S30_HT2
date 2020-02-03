@@ -54,51 +54,50 @@ public class GuatemalanCalculator {
         return true;
     }
 
-    public int calculate(String line) {
+    int calculate(String line) {
         int firstNumber = 0;
         int secondNumber = 0;
         int result = -1;
+        String dataArray[] = line.split(" ");
 
-        for(int i = 0; i < line.length(); i++) {
-            char character = line.charAt(i);
-            switch (character) {
-                case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
-                    int number = Character.getNumericValue(character);
+        for(int i = 0; i < dataArray.length; i++) {
+            String arrayLocation = dataArray[i];
+            switch (arrayLocation) {
+                case "0": case "1": case "2": case "3": case "4": case "5": case "6": case "7": case "8": case "9":
+                case "-1": case "-2": case "-3": case "-4": case "-5": case "-6": case "-7": case "-8": case "-9":
+                    int number = Integer.parseInt(arrayLocation);
                     resultStack.push(number);
                     break;
 
-                case '+':
+                case "+":
                     firstNumber = resultStack.pop();
                     secondNumber = resultStack.pop();
                     resultStack.push(firstNumber + secondNumber);
                     break;
 
-                case '-':
+                case "-":
                     firstNumber = resultStack.pop();
                     secondNumber = resultStack.pop();
-                    resultStack.push(firstNumber - secondNumber);
+                    resultStack.push(secondNumber - firstNumber);
                     break;
 
-                case '*':
+                case "*":
                     firstNumber = resultStack.pop();
                     secondNumber = resultStack.pop();
                     resultStack.push(firstNumber * secondNumber);
                     break;
 
-                case '/':
+                case "/":
                     firstNumber = resultStack.pop();
                     secondNumber = resultStack.pop();
-                    resultStack.push(firstNumber / secondNumber);
-                    break;
-                    
-                case ' ':
+                    resultStack.push(secondNumber / firstNumber);
                     break;
 
                 default:
-                    return -1000101;    // Error code (binary E) used to signify an invalid line calculation. 
+                    return -1000101;    // Error code (binary E) used to signify an invalid line calculation.
             }
         }
-        return result;
+        return resultStack.peek();
     }
 
     public String leerTxt (String direccion ) {
