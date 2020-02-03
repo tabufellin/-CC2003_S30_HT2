@@ -9,7 +9,7 @@ public class GuatemalanCalculator {
 // done importTExt()
     public ArrayList<String> importText() {
 
-        String direccion = "C:/Users/dsgsp/OneDrive/Documentos/progra/Estructuras/semana3/3/-CC2003_S30_HT2/texto.txt";
+        String direccion = "texto.txt";
         String datosDocumento = leerTxt(direccion);
 
         String datosEnArray[] = datosDocumento.split(" ");
