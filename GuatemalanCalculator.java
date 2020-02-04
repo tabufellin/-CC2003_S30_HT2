@@ -48,13 +48,6 @@ public class GuatemalanCalculator {
     }
 
     boolean validateText(String line) {
-
-        // incompleto
-
-        return true;
-    }
-
-    int calculate(String line) {
         int firstNumber = 0;
         int secondNumber = 0;
         int result = -1;
@@ -70,43 +63,62 @@ public class GuatemalanCalculator {
                     break;
 
                 case "+":
-                    firstNumber = resultStack.pop();
-                    secondNumber = resultStack.pop();
-                    resultStack.push(firstNumber + secondNumber);
+                    try {
+                        firstNumber = resultStack.pop();
+                        secondNumber = resultStack.pop();
+                        resultStack.push(firstNumber + secondNumber);
+                    } catch (Exception e) {
+                        return false;
+                    }
                     break;
 
                 case "-":
-                    firstNumber = resultStack.pop();
-                    secondNumber = resultStack.pop();
-                    resultStack.push(secondNumber - firstNumber);
+                    try {
+                        firstNumber = resultStack.pop();
+                        secondNumber = resultStack.pop();
+                        resultStack.push(secondNumber - firstNumber);
+                    } catch (Exception e) {
+                        return false;
+                    }
                     break;
 
                 case "*":
-                    firstNumber = resultStack.pop();
-                    secondNumber = resultStack.pop();
-                    resultStack.push(firstNumber * secondNumber);
+                    try {
+                        firstNumber = resultStack.pop();
+                        secondNumber = resultStack.pop();
+                        resultStack.push(firstNumber * secondNumber);
+                    } catch (Exception e) {
+                        return false;
+                    }
                     break;
 
                 case "/":
-                    firstNumber = resultStack.pop();
-                    secondNumber = resultStack.pop();
-                    resultStack.push(secondNumber / firstNumber);
+                    try {
+                        firstNumber = resultStack.pop();
+                        secondNumber = resultStack.pop();
+                        resultStack.push(secondNumber / firstNumber);
+                    } catch (Exception e) {
+                        return false;
+                    }
                     break;
 
                 default:
-                    return -1000101;    // Error code (binary E) used to signify an invalid line calculation.
+                    return false;    // If it finds an invalid symbol, it returns false.
             }
         }
+        return true;    // If the calculation is valid, true is returned.
+    }
+
+    // Este metodo unicamente retorna la ultima posicion del stack, debido a que validate ya realiza el calculo.
+    // Esto evita que se tenga que calcular dos veces lo mismo.
+    int calculate(String line) {
         return resultStack.peek();
     }
+
 
     public String leerTxt (String direccion ) {
 
         String texto = "";
-
-
-
-
         try {
 
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
@@ -120,15 +132,12 @@ public class GuatemalanCalculator {
 
             texto = temp;
 
-
-
         } catch (Exception e) {
             System.err.println("No se encontro un archivo");
 
         }
 
         return texto;
-
     }
 
     public static String insertString( String originalString, String stringToBeInserted, int index)  { 
@@ -142,7 +151,5 @@ public class GuatemalanCalculator {
   
         // return the modified String 
         return newString.toString(); 
-    } 
-  
-
+    }
 }
