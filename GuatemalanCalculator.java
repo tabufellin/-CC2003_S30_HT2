@@ -2,11 +2,37 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+/*
+    A class that is used to get a text from a file .txt
+    with a form of representing some numbers sumatory and
+    calculation
+    for example we have
+    3 4 +
+    that means 3 + 4 
+    we use stack to create this procesure
+    this will be explained in calculate method
+
+*/
 public class GuatemalanCalculator {
+
+    /*
+        variable that is using a class that give the ability to stack
+        because java dont include a stack class we created it
+        it will be used in method "calculate"
+    */
     private QuetzalStack<Integer> resultStack = new QuetzalStack<Integer>();
 
 
-// done importTExt()
+    /*
+        get the string of a .txt
+        then get for lines
+        and put in a arraylist of strings  
+        @return datosEnArrayList that is the class
+                that have the String of all text 
+                segmentated by lines in an arraylist
+                each element is a line a substring
+
+    */
     public ArrayList<String> importText() {
 
         String direccion = "texto.txt";
@@ -16,11 +42,7 @@ public class GuatemalanCalculator {
         ArrayList<String> datosEnArrayList = new ArrayList();
         String salto = "S";
         int largoValor;
-
         int contadorCuantosSaltos = 0;
-
-
-
         // first we will insert "S" between 2 following characters joined with no space
         // because that is a linejump
         for (int i = 0; i < datosEnArray.length; i++) {
@@ -140,6 +162,17 @@ public class GuatemalanCalculator {
         return texto;
     }
 
+    /*
+        This class is usefull to insert a letter in every part of a string 
+        that you want in a way that of it works the .split in strings
+        but it just add info
+
+        @params originalString -->The String you wanna change
+                stringToBeInserted --> what you what to put between
+                index --> in which position
+        @return newString --> the modified string
+
+    */
     public static String insertString( String originalString, String stringToBeInserted, int index)  { 
         // Create a new StringBuffer 
         StringBuffer newString 
