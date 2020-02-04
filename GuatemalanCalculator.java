@@ -1,21 +1,26 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-
-/*
-    A class that is used to get a text from a file .txt
-    with a form of representing some numbers sumatory and
-    calculation
-    for example we have
-    3 4 +
-    that means 3 + 4 
-    we use stack to create this procesure
-    this will be explained in calculate method
-
-*/
+/**
+ * <h1>Main</h1>
+ * A class that is used to get a text from a .txt file
+ * with a form of representing some numbers sumatory and
+ * calculation
+ * for example we have
+ * 3 4 +
+ * that means 3 + 4
+ * we use stack to create this procedure
+ * this will be explained in verify and calculate methods
+ * <p>
+ *
+ *
+ * @author Sebastian Gonzales (tabufellin) Pablo Ruiz (PingMaster99)
+ * @version 1.0
+ * @since 2020-02-4
+ **/
 public class GuatemalanCalculator {
 
-    /*
+    /**
         variable that is using a class that give the ability to stack
         because java dont include a stack class we created it
         it will be used in method "calculate"
@@ -23,7 +28,7 @@ public class GuatemalanCalculator {
     private QuetzalStack<Integer> resultStack = new QuetzalStack<Integer>();
 
 
-    /*
+    /**
         get the string of a .txt
         then get for lines
         and put in a arraylist of strings  
@@ -35,7 +40,7 @@ public class GuatemalanCalculator {
     */
     public ArrayList<String> importText() {
 
-        String direccion = "texto.txt";
+        String direccion = "datos.txt";
         String datosDocumento = leerTxt(direccion);
 
         String datosEnArray[] = datosDocumento.split(" ");
@@ -162,12 +167,12 @@ public class GuatemalanCalculator {
         return texto;
     }
 
-    /*
+    /**
         This class is usefull to insert a letter in every part of a string 
         that you want in a way that of it works the .split in strings
         but it just add info
 
-        @params originalString -->The String you wanna change
+        @param originalString -->The String you wanna change
                 stringToBeInserted --> what you what to put between
                 index --> in which position
         @return newString --> the modified string
