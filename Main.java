@@ -16,8 +16,8 @@ public class Main {
                 System.out.println("El resultado de la linea " + (i + 1) + " es: " + x);
             } else {
                 System.out.println("Se ha encontrado un error en la línea " + (i + 1));
-                System.out.println("Recuerde no incluir caracteres no soportados y eliminar cualquier espacio extra, " +
-                        "como por ejemplo: '3 3 + '. Lo correcto es: '3 3 +' sin espacio.");
+                System.out.println("Recuerde solamente incluir caracteres soportados y eliminar cualquier espacio" +
+                        " adicional, como por ejemplo: '3 3 + '. Lo correcto es: '3 3 +' sin espacio.");
                 break;
             }
         }
