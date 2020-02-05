@@ -31,7 +31,7 @@ public class Main {
                 System.out.println("Se ha encontrado un error alrededor de la linea " + (i + 1) +":");
                 System.out.println("Se encontro " + "'"+ aAnalizar + "'");
                 System.out.println("Recuerde solamente incluir caracteres soportados y eliminar cualquier espacio" +
-                        " adicional, como por ejemplo: '3 3 + '. Lo correcto es: '3 3 +' sin espacio.");
+                        " adicional. Los espacios para escribir en multiples lineas deben ser sencillos");
                 break;  // If there's an error, the program is stopped.
             }
         }
