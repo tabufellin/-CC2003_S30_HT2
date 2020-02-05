@@ -1,0 +1,10 @@
+Instrucciones: 
+El archivo para incluir las operaciones debe llamarse "datos.txt".
+La calculadora postfix permite escribir operaciones en varias líneas, por ejemplo:
+
+'1 2 + '
+'2 3 *'
+
+lo lee como: "1 2 + 2 3 *"
+
+Sin embargo, el espacio al final y entre cada caracter debe ser sencillo. 
